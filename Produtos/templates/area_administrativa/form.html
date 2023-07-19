@@ -1,0 +1,38 @@
+{% block center %}
+    <h2> Formulário para cadastro dos produtos</h2>
+       
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            {{ form.nome}}
+        </div>
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Marca</label>
+            {{ form.marca }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Descrição</label>
+            {{ form.descricao }}
+        </div>
+        
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Preço</label>
+            {{ form.preco }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Imagem do produto</label>
+            {{ form.imagem}}
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>   
+    
+    
+{% endblock %}
+   
