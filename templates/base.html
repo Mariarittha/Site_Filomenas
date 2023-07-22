@@ -1,15 +1,41 @@
 {% load static %}
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Bem-Vindos!</title>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
 
-{% block title%}
-Bem-Vindos!
-{% endblock %} 
-
-{% include 'menu.html' %}
-      
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Koulen&family=Source+Sans+Pro&display=swap"
+           rel="stylesheet">
+   </head>
+   
    {% block body %}     
+   <body>
+      <!-- "{% static 'img/logo.png' %} -->
+       <header>
+           <a><img src="img/logo.png"></a>
+           <div>
+               <input type="text" placeholder="Procure aqui!" name="busca" />
+               <button class="enviar" type="submit" class="btn btn-danger">Buscar</button>
+           </div>
+       </header>
+       <nav>
+           <ul>
+               <li><a class="menu" href="{% url 'index' %}">Inicio</a></li>
+               <li><a class="menu" href="{% url 'produtos_listar' %}">Produtos</a></li>
+               <li><a class="menu" href="#">Sobre Nós</a></li>
+           </ul>
+       </nav>
+   </body>
+   </html>
 
    {% endblock  %}
 
-   {% block index %}     
+   {% block center %}
 
    {% endblock  %}

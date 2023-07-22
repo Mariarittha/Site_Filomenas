@@ -2,12 +2,15 @@
 
 {% block center %}
 
-  <h2> Lista de produtos</h2>
+  <h2> detalhar</h2>
 
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Marca</th>
+        <th>Preço</th>
+        <th>Descrição</th>
         <th>Imagem</th>
       </tr>
     </thead>
@@ -15,6 +18,9 @@
       {% for produto in produtos %}  
       <tr>
         <td>{{ produtos.nome }}</td>
+        <td>{{ produtos.marca }}</td>
+        <td>{{ produtos.preco }}</td>
+        <td>{{ produtos.descricao }}</td>
         <td> <img src="{{ produtos.imagem.url}}"/></td>
       
       </tr>
