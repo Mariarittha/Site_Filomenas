@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block center %}
 
@@ -13,8 +15,11 @@
           <div class="col-md-4">
 
              <h4>{{ produto.nome }}</h4>
-             <img src="{{ produto.imagem.url}}" width="150"/>
-              <a href="{% url 'detalhar_produto' id=produto.id %}" class="btn btn-primary btn-sm">Ver mais...</a>
+             <div> 
+              <img src="{{ produto.imagem.url}}" width="150"/>
+             </div>
+           <button type="submit">  <a href="{% url 'detalhar_produto' id=produto.id %}" class="btn btn-primary btn-sm">Comprar</a></button>
+             
 
           </div>
       {% endfor %}

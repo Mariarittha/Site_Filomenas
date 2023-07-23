@@ -9,18 +9,18 @@
        <link rel="preconnect" href="https://fonts.googleapis.com">
 
        <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+       <link href="{% static 'img/2.png' %}" rel="stylesheet">
+
 
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Koulen&family=Source+Sans+Pro&display=swap"
-           rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Koulen&family=Source+Sans+Pro&display=swap" rel="stylesheet">
            
    </head>
    
    {% block body %}     
    <body>
-      <!-- "{% static 'img/logo.png' %} -->
        <header>
-           <a><img src="img/logo.png"></a>
+           <a><img src="img/2.png"></a>
            <div>
                <input type="text" placeholder="Procure aqui!" name="busca" />
                <button class="enviar" type="submit" class="btn btn-danger">Buscar</button>
@@ -28,9 +28,10 @@
        </header>
        <nav>
            <ul>
-               <li><a href="{% url 'index' %}">Inicio</a></li>
-               <li><a href="{% url 'produtos_listar' %}">Produtos</a></li>
-               <li><a href="#">Sobre Nós</a></li>
+               <li><a class="barra" href="{% url 'index' %}">Inicio</a></li>
+               <li><a class="barra"  href="{% url 'produtos_listar' %}">Produtos</a></li>
+               <li><a class="barra" href="#">Sobre nossa cultura</a></li>
+               <li><a class="barra" href="{% url 'produtos_cadastrar' %}">Forms</a></li>
            </ul>
        </nav>
    </body>
@@ -41,3 +42,23 @@
    {% block center %}
 
    {% endblock  %}
+   <footer>
+    <div class="rodape">
+        <div>
+            <ul>
+                <li><strong> Contatos:</strong></li>
+                <li>Email: sundhed@sun.com</li>
+                <li>Telefone: XX XXXX-XXXX</li>
+            </ul>
+        </div>
+        <div>
+            <div>
+                <label for="ajuda"><strong>Ajuda?</strong></label>
+                <input class="ajuda" id="ajuda" type="text" placeholder=" Escreva aqui!" />
+            </div>
+            <div>
+                <input type="submit" value="Enviar" class="btenviar">
+            </div>
+        </div>
+    </div>
+</footer>

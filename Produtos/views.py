@@ -13,12 +13,14 @@ def index(request):
 
 def produtos_cadastrar(request):
     if request.method == 'POST':
-        form = ProdutosForm(request.POST)
+        form = ProdutosForm(request.POST, request.FILES)
         if form.is_valid():
+            print("salvando")
             form.save()
-            print("Está salvando!")
             form = ProdutosForm()
     else:
+        
+        print('entrou primeiro aqui')
         form = ProdutosForm()
 
     return render(request, "area_administrativa/form.html", {'form': form})
@@ -35,3 +37,12 @@ def detalhar_produto(request, id):
     context={'produtos' : produtos}
     
     return render(request,'produtos/detalhar.html', context)
+
+
+def total(request):
+    total_produtos = Produtos.objects.count()
+
+    context = {
+        'total_produtos' : total_produtos
+    }
+    return render(request, "area_administrativa/administrador.html",context)

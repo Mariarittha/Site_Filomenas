@@ -1,3 +1,4 @@
+
 header {
     display: grid;
     grid-template-columns: repeat(2, 40%);
@@ -26,9 +27,6 @@ input {
     height: 30px;
 }
 
-
-
-
 nav {
     background-color: #B05420;
     height: 40px;
@@ -40,21 +38,69 @@ nav {
 
 }
 
+footer {
+    background-color: #E28743;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rodape {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', 'sans-sarif';
+    color: white;
+}
 
 ul {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     align-items: center;
 }
 
-
-a{
+a:hover{
+    color: rosybrown;
+}
+.barra {
+    color:  black;
     text-decoration: none;
 }
 
 /* pagina index */
 #index-1{
    text-align: center; 
+}
+
+.site {
+    background-color: #EDE7DC;
+    height: 150px;
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+}
+#psite {
+    color: black;
+    text-align: center;
+}
+.site {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3%;
+    height: 300px;
+}
+
+.site {
+    padding: 3%;
+    height: 200px;
+}
+.container{
+    columns: row;
 }

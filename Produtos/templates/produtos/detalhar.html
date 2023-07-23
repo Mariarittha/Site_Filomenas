@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 Detalhe_curso
 {% endblock %}
@@ -9,23 +11,30 @@ Detalhe_curso
 
 {% block body %}
 
-        <h1 class="nome">{{ produtos.nome }}</h1>
-        <p></p>
 
+<div class="container">
+ <h3>Produto: {{ produtos.nome }}</h3>
+ <h1 class="nome">{{ produtos.nome }}</h1>  
 
-<div>
-    <div class="imagens">
-            <img class="imgs" src="{{produtos.imagem.url}}" alt="Imagem" >
-    </div>
+ <div class="row">
+        
+        <div class="col-md-6">
+                <img src="{{ produtos.imagem.url }}" alt="Imagem" width="600px">
+        </div> 
+        <div class="col-md-2 tex-left">
+               
+                <p class="preço">Preço: {{ produtos.preco }}</p>
+                <p class="marca">Marca: {{ produtos.marca }}</p>
+                <p class="descrição">Descrição: {{ produtos.descricao }}</p> 
+        </div>
 
-        <div>
-                <p></p>
-        <p class="preço">{{ produtos.preco }}</p>
-        <p class="marca">{{ produtos.marca }}</p>
-        <p class="descrição">{{ produtos.descriçao }}</p>
+        <button type="submit"> <a href="https://chat.whatsapp.com/HutCKZNbmyT6Wo6AF3SQqv" class="btn btn-primary btn-sm">Comprar</a></button>
+        <button type="submit"> <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Voltar</a></button>
+
 
         </div>
-</div>
+ </div>
 
-{% endblock %}
+ {% endblock %}
 
+\
