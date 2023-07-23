@@ -1,35 +1,31 @@
 {% extends 'base.html' %}
 
-{% block center %}
-
-  <h2> detalhar</h2>
-
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Marca</th>
-        <th>Preço</th>
-        <th>Descrição</th>
-        <th>Imagem</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for produto in produtos %}  
-      <tr>
-        <td>{{ produtos.nome }}</td>
-        <td>{{ produtos.marca }}</td>
-        <td>{{ produtos.preco }}</td>
-        <td>{{ produtos.descricao }}</td>
-        <td> <img src="{{ produtos.imagem.url}}"/></td>
-      
-      </tr>
-      {% endfor %}
-    
-    </tbody>
-  </table>
+{% block title %}
+Detalhe_curso
 {% endblock %}
 
+{% block head %}
+{%endblock%}
+
+{% block body %}
+
+        <h1 class="nome">{{ produtos.nome }}</h1>
+        <p></p>
 
 
-  
+<div>
+    <div class="imagens">
+            <img class="imgs" src="{{produtos.imagem.url}}" alt="Imagem" >
+    </div>
+
+        <div>
+                <p></p>
+        <p class="preço">{{ produtos.preco }}</p>
+        <p class="marca">{{ produtos.marca }}</p>
+        <p class="descrição">{{ produtos.descriçao }}</p>
+
+        </div>
+</div>
+
+{% endblock %}
+

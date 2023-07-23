@@ -2,25 +2,26 @@
 
 {% block center %}
 
-  <h2> Lista de produtos</h2>
+  <h2>Seja Bem-vindo a página de produtos</h2>
 
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Imagem</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for produto in produtos %}  
-      <tr>
-        <td>{{ produtos.nome }}</td>
-        <td> <img src="{{ produtos.imagem.url}}"/></td>
-      
-      </tr>
+
+
+<body>
+  <div class="container">
+<div class="row">
+     {% for produto in produtos %} 
+          <div class="col-md-4">
+
+             <h4>{{ produto.nome }}</h4>
+             <img src="{{ produto.imagem.url}}" width="150"/>
+              <a href="{% url 'detalhar_produto' id=produto.id %}" class="btn btn-primary btn-sm">Ver mais...</a>
+
+          </div>
       {% endfor %}
+</div>
+</div>
     
-    </tbody>
+    </body>
   </table>
 {% endblock %}
 

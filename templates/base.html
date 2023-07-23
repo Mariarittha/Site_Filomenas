@@ -7,11 +7,13 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>Bem-Vindos!</title>
        <link rel="preconnect" href="https://fonts.googleapis.com">
+
        <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
 
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Koulen&family=Source+Sans+Pro&display=swap"
            rel="stylesheet">
+           
    </head>
    
    {% block body %}     
@@ -26,9 +28,9 @@
        </header>
        <nav>
            <ul>
-               <li><a class="menu" href="{% url 'index' %}">Inicio</a></li>
-               <li><a class="menu" href="{% url 'produtos_listar' %}">Produtos</a></li>
-               <li><a class="menu" href="#">Sobre Nós</a></li>
+               <li><a href="{% url 'index' %}">Inicio</a></li>
+               <li><a href="{% url 'produtos_listar' %}">Produtos</a></li>
+               <li><a href="#">Sobre Nós</a></li>
            </ul>
        </nav>
    </body>

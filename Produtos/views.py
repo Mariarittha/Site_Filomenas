@@ -13,7 +13,6 @@ def index(request):
 
 def produtos_cadastrar(request):
     if request.method == 'POST':
-        print('entrou')
         form = ProdutosForm(request.POST)
         if form.is_valid():
             form.save()
@@ -30,3 +29,9 @@ def produtos_listar(request):
         'produtos':produtos
     }
     return render(request, "produtos/produtos.html",context)
+
+def detalhar_produto(request, id):
+    produtos = get_object_or_404(Produtos, id=id)
+    context={'produtos' : produtos}
+    
+    return render(request,'produtos/detalhar.html', context)
