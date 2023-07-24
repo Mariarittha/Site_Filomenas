@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}
@@ -19,37 +20,58 @@ Area do administrador
     </div>
   </div>
 
+{% endblock %}
 
+
+{% block center %}
 
   <h2> Tabela com os produtos cadastrados</h2>
+  
 
-
+<body>
   <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Imagem</th>
-        <th>Marca</th>
-        <th>Preço</th>
-        <th>Decrição</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for produto in produtos %}  
-      <tr>
-        <td>{{ produto.nome }}</td>
-        <td>{{ produto.preco }}</td>
-        <td>{{ produto.marca }}</td>
-        <td>{{ produto.curso.descricao }}</td>
-        <td><img src="{{ produto.imagem.url }}"></td>   
-      </tr>
 
-      {% endfor %}
+<thead>
+      <tr>
+          <th>Nome</th>
+          <th>Marca</th>
+          <th>Preço</th>
+          <th>Descrição</th>
+          <th>Imagem</th>
+      </tr>
+</thead>
 
-    </tbody>
-</table>
-<a href="{% url 'produtos_cadastrar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+        <tbody>
+              {% for produto in produtos %} 
+              <tr>
+                  <td>{{produto.nome}}</td>
+                  <td>{{produto.marca}}</td>
+                  <td>{{produto.preco}}</td>
+                  <td>{{produto.descricao}}</td>
+                  <td> <img src="{{ produto.imagem.url}}" width="150"/></td>
+                  <td>
+                    <a href="{% url 'produto_editar' id=produto.id %}">Editar</a>
+                    <a href="{% url 'produto_remover' id=produto.id %}">Deletar</a>
+                  </td>
+
+              </tr>
+              {% endfor %}
+            
+        </tbody>
+
+
+        
+    </table>
+    <br>
+    <br>
+    <button><a href="{% url 'produtos_cadastrar' %}" class="btn btn-success mb-3">Novo Cadastro</a></button>
+    <button type="submit"> <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Página de produtos</a></button>
+
+
+</body>
+
+
 
  {% endblock %}
 
-\
+

@@ -46,3 +46,26 @@ def total(request):
         'total_produtos' : total_produtos
     }
     return render(request, "area_administrativa/administrador.html",context)
+
+#atualizar
+
+def produto_editar(request,id):
+    produto = get_object_or_404(Produtos,id=id)
+   
+    if request.method == 'POST':
+        form = ProdutosForm(request.POST,request.FILES,instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('produtos_listar')
+    else:
+        form = ProdutosForm(instance=produto)
+
+    return render(request,'area_administrativa/form.html',{'form':form})
+
+#apagar
+
+def produto_remover(request, id):
+    produto = get_object_or_404(Produtos, id=id)
+    produto.delete()
+    return redirect('produtos_listar') # procure um url com o nome 'produtos_listar'
+
