@@ -2,34 +2,29 @@
 
 {% load static %}
 
-{% block title %}
-Area do administrador
-{% endblock %}
-
-{% block body %}
-
-<h2 class="mt-3">Painel do administrador</h2>
-
-<div class="row mt-3">
-  <div class="col-md-4">
-    <div class="card text-white bg-primary mb-3">
-    
-      <div class="card-body">
-        <h2 class="card-title">Total de Produtos: {{ total_produtos }}</h2>
-      </div>
-    </div>
-  </div>
-
-{% endblock %}
+{% block title %}Area do administrador{% endblock %}
 
 
 {% block center %}
 
-  <h2> Tabela com os produtos cadastrados</h2>
+<h2 class="mt-3 text-center">Painel do administrador</h2>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    
+    
+      <div>
+        <h2 class="m-3">Total de Produtos: {{ total_produtos }}</h2>
+    
+    </div>
+  </div>
+
+
+  <h2 class="text-center"> Tabela com as informações</h2>
   
 
 <body>
-  <table class="table table-bordered">
+  <table class="table table-bordered m-3">
 
 <thead>
       <tr>
@@ -40,6 +35,22 @@ Area do administrador
           <th>Imagem</th>
       </tr>
 </thead>
+
+{% for produto in produtos %} 
+              <tr>
+                  <td>{{produto.nome}}</td>
+                  <td>{{produto.marca}}</td>
+                  <td>{{produto.preco}}</td>
+                  <td>{{produto.descricao}}</td>
+                  <td> <img src="{{ produto.imagem.url}}" width="150"/></td>
+                  <td>
+                    <a href="{% url 'produto_editar' id=produto.id %}">Editar</a>
+                    <a href="{% url 'produto_remover' id=produto.id %}">Deletar</a>
+                  </td>
+
+              </tr>
+              {% endfor %}
+
 
         <tbody>
               {% for produto in produtos %} 
@@ -64,8 +75,13 @@ Area do administrador
     </table>
     <br>
     <br>
-    <button><a href="{% url 'produtos_cadastrar' %}" class="btn btn-success mb-3">Novo Cadastro</a></button>
-    <button type="submit"> <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Página de produtos</a></button>
+
+    <div class="m-4">
+      <a href="{% url 'produtos_cadastrar' %}" class="btn btn-secondary">Novo Cadastro</a>
+      <a href="{% url 'produtos_listar' %}" class="btn btn-secondary">Página de produtos</a>
+
+    </div>
+    
 
 
 </body>

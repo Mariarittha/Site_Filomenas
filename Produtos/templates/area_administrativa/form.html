@@ -33,7 +33,11 @@
              <br>   
             <button type="submit" class="btn btn-primary">Enviar</button>
           </form> 
-          <button type="submit">  <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Voltar</a></button>
+          <!-- <a href="{% url 'produtos_listar' %}" class="btn btn-success">Voltar</a> -->
+
+         <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Voltar</a>
+         <a href="{% url 'total_produtos' %}" class="btn btn-primary btn-sm">administrador</a>
+
 
 
 {% endblock %}

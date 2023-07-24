@@ -3,35 +3,44 @@
 
 
 {% block center %}
-
-  <h2>Seja Bem-vindo a página de produtos</h2>
-
-
+<br>
+  <h2 class="text-center">Seja Bem-vindo a página de produtos</h2>
+<hr>
+<br>
 
 <body>
 
-  <div class="d-flex align-content-start flex-wrap">
-   
-  
+ <div class="container">
 
-<div class="row">
+    <div class="row mt-3">
      {% for produto in produtos %} 
+
           <div class="col-md-4">
 
-             <h4>{{ produto.nome }}</h4>
-             <div> 
-              <img src="{{ produto.imagem.url}}" width="150"/>
-             </div>
-           <button type="submit">  <a href="{% url 'detalhar_produto' id=produto.id %}" class="btn btn-primary btn-sm">Comprar</a></button>
+      <div class="m-5">
+        
+             <h4><strong>{{ produto.nome }}</strong></h4>
+             <hr>
+             <br>            
+              <img src="{{ produto.imagem.url}}" class="img-fluid" style="height: 200; object-fit: cover;"/>
              
+             <br>
+             <p></p>
+             <h6>Preço: R${{ produto.preco }}</h6>
+             <br>
+             
+             <a href="{% url 'detalhar_produto' id=produto.id %}" class="btn btn-success">Comprar</a>
 
+           <br>
+      </div>
           </div>
+         
       {% endfor %}
-</div>
+  </div>
 </div>
     
     </body>
-  </table>
+  
 {% endblock %}
 
 

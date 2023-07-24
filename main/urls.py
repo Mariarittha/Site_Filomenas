@@ -9,10 +9,10 @@ urlpatterns = [
     path('', index, name='index'),
     path('acesso_restrito/', produtos_cadastrar, name='produtos_cadastrar'),
     path('listar/', produtos_listar,name='produtos_listar', ),
-    path ('detalhar_produto/<int:id>', detalhar_produto, name='detalhar_produto'),
+    path ('detalhar_produto/<int:id>/', detalhar_produto, name='detalhar_produto'),
     path('administrador/', total, name="total_produtos"),
-    path('editar/<int:id>', produto_editar, name='produto_editar'),
-    path('remover/<int:id>', produto_remover, name="produto_remover"),
+    path('editar/<int:id>/', produto_editar, name='produto_editar'),
+    path('remover/<int:id>/', produto_remover, name="produto_remover"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

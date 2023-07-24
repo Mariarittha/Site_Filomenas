@@ -104,3 +104,6 @@ a:hover{
 .container{
     columns: row;
 }
+.produtos-bemvindo{
+    text-align: center;
+}

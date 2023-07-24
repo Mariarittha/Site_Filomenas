@@ -11,6 +11,8 @@ def index(request):
     }
     return render(request,"produtos/index.html",context)
 
+#criar
+
 def produtos_cadastrar(request):
     if request.method == 'POST':
         form = ProdutosForm(request.POST, request.FILES)
@@ -24,6 +26,28 @@ def produtos_cadastrar(request):
         form = ProdutosForm()
 
     return render(request, "area_administrativa/form.html", {'form': form})
+
+#atualizar
+
+def produto_editar(request,id):
+    produto = get_object_or_404(Produtos,id=id)
+   
+    if request.method == 'POST':
+        form = ProdutosForm(request.POST,request.FILES,instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('produtos_listar')
+    else:
+        form = ProdutosForm(instance=produto)
+
+    return render(request,'area_administrativa/form.html',{'form':form})
+
+#apagar
+
+def produto_remover(request, id):
+    produto = get_object_or_404(Produtos, id=id)
+    produto.delete()
+    return redirect('produtos_listar') # procure um url com o nome 'produtos_listar'
 
 def produtos_listar(request):
     produtos = Produtos.objects.all()
@@ -47,25 +71,5 @@ def total(request):
     }
     return render(request, "area_administrativa/administrador.html",context)
 
-#atualizar
 
-def produto_editar(request,id):
-    produto = get_object_or_404(Produtos,id=id)
-   
-    if request.method == 'POST':
-        form = ProdutosForm(request.POST,request.FILES,instance=produto)
-        if form.is_valid():
-            form.save()
-            return redirect('produtos_listar')
-    else:
-        form = ProdutosForm(instance=produto)
-
-    return render(request,'area_administrativa/form.html',{'form':form})
-
-#apagar
-
-def produto_remover(request, id):
-    produto = get_object_or_404(Produtos, id=id)
-    produto.delete()
-    return redirect('produtos_listar') # procure um url com o nome 'produtos_listar'
 

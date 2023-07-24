@@ -9,30 +9,33 @@ Detalhe_curso
 {% block head %}
 {%endblock%}
 
-{% block body %}
+{% block center %}
 
-
+<div class="m-4">
 <div class="container">
- <h3>Produto: {{ produtos.nome }}</h3>
- <h1 class="nome">{{ produtos.nome }}</h1>  
 
+ <h2 class="shadow p-3 mb-5 bg-body-tertiary rounded">Produto: {{ produtos.nome }}</h2>
  <div class="row">
         
         <div class="col-md-6">
-                <img src="{{ produtos.imagem.url }}" alt="Imagem" width="600px">
-        </div> 
-        <div class="col-md-2 tex-left">
+                <img src="{{ produtos.imagem.url }}" alt="Imagem" width="600px" class="img-fluid">
+        </div>
+
+        <div class="col-md-2 text-left">
                
-                <p class="preço">Preço: {{ produtos.preco }}</p>
-                <p class="marca">Marca: {{ produtos.marca }}</p>
-                <p class="descrição">Descrição: {{ produtos.descricao }}</p> 
+                <p class="text-danger"><strong>Preço</strong> R$ {{ produtos.preco }} </p>
+                <p class="marca"><strong>Marca:</strong> {{ produtos.marca }}</p>
+                <p class="descrição"><strong>Descrição:</strong> {{ produtos.descricao }}</p> 
+                <hr>
+                <a href="#" class="btn btn-success">Comprar</a>
+                <a href="{% url 'produtos_listar' %}" class="btn btn-success">Voltar</a>
+
+               
+              
         </div>
-
-        <button type="submit"> <a href="https://chat.whatsapp.com/HutCKZNbmyT6Wo6AF3SQqv" class="btn btn-primary btn-sm">Comprar</a></button>
-        <button type="submit"> <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Voltar</a></button>
-
-
+        <br>
         </div>
+</div>
  </div>
 
  {% endblock %}
