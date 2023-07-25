@@ -47,7 +47,7 @@ def produto_editar(request,id):
 def produto_remover(request, id):
     produto = get_object_or_404(Produtos, id=id)
     produto.delete()
-    return redirect('produtos_listar') # procure um url com o nome 'produtos_listar'
+    return redirect('produtor_listar_admin') # procure um url com o nome 'produtos_listar'
 
 def produtos_listar(request):
     produtos = Produtos.objects.all()
@@ -69,7 +69,11 @@ def total(request):
     context = {
         'total_produtos' : total_produtos
     }
-    return render(request, "area_administrativa/administrador.html",context)
+    return render(request, "area_administrativa/areaAdmin.html",context)
 
-
-
+def produtos_listar_admin(request):
+    produtos = Produtos.objects.all()
+    context ={
+        'produtos':produtos
+    }
+    return render(request, "area_administrativa/areaAdmin.html",context)
