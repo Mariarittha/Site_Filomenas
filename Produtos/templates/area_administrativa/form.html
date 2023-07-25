@@ -1,26 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
 {% block center %}
-    <h2> Formulário para cadastro dos produtos</h2>
+<br>
+    <h2 class="text-center m-4.+"> Formulário para cadastro dos produtos</h2>
        
-    <form method="POST" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="m-4">
+
+      <div class="mb-3">
+          <label for="nome" class="form-label"><strong>Nome</strong></label>
+          {{ form.nome }}
+      </div>
+      
+      <div class="mb-3">
+          <label for="nome" class="form-label"><strong>Marca</strong></label>
+          {{ form.marca }}
+      </div>
+
+      <div class="mb-3">
+          <label for="nome" class="form-label"><strong>Preço</strong></label>
+          {{ form.preco }}
+      </div>
+      
+
+      <div class="mb-3">
+          <label for="nome" class="form-label"><strong>Descrição</strong></label>
+          {{ form.descricao }}
+      </div>
+
+      <div class="mb-3">
+          <label for="nome" class="form-label"><strong>Imagem</strong></label>
+          {{ form.imagem }}
+      </div>
+    </div>
+
+      <button type="submit" class="btn btn-success m-3">Enviar</button>
+  </form>
+  
+  <div class="m-3 text-center">
+    <a href="{% url 'produtos_listar' %}" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'total_produtos' %}" class="btn btn-secondary">administrador</a>
+  
+  </div>
+  
+
+  {% endblock %}
+
+
+    <!-- <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-          <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Imagem</label>
+          <div class=" mb-3">
+          <label for="" class="form-label">Imagem</label>
           {{ form.imagem }}  
             </div>
 
-            <div class="row mb-3">
-              <label>Nome do produto</label>
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome do produto</label>
                    {{ form.nome }}
             </div>
 
-            <div class="row mb-3">
-              <label>Marca  do produto</label>
+            <div class=" mb-3">
+              <label for="nome" class="form-label">Marca  do produto</label>
                    {{ form.marca}}
             </div>
 
-            <div class="row mb-3">
-              <label>Preço do produto</label>
+            <div class="mb-3">
+              <label for="nome" class="form-label">Preço do produto</label>
                    {{ form.preco }}
             </div>
 
@@ -32,15 +81,13 @@
           
              <br>   
             <button type="submit" class="btn btn-primary">Enviar</button>
-          </form> 
+          </form>  -->
           <!-- <a href="{% url 'produtos_listar' %}" class="btn btn-success">Voltar</a> -->
 
-         <a href="{% url 'produtos_listar' %}" class="btn btn-primary btn-sm">Voltar</a>
-         <a href="{% url 'total_produtos' %}" class="btn btn-primary btn-sm">administrador</a>
+        
 
 
 
-{% endblock %}
 
 
 <!-- <form method="post" enctype="multipart/form-data">
