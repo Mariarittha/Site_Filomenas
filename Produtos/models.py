@@ -6,3 +6,10 @@ class Produtos(models.Model):
     preco = models.FloatField()
     imagem = models.ImageField(upload_to='imagem')
     descricao = models.CharField(max_length=200)
+    
+    
+class Admin_login(models.Model):
+    nome = models.CharField(max_length=60)
+    email = models.EmailField()
+    senha = models.IntegerField()
+    
