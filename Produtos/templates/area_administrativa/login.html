@@ -1,3 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block center %}
+<br>
+    <h2 class="text-center m-4.+"> Autenticação</h2>
+<hr>
+
+
+<div class="row">
+<div class="clo-md-4 mx-auto">
+    <form method="post" action="{% url 'login' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+  
+      <div class=" text-center m-4">
+  
+          <input type="text" placeholder="Username..." name="username">
+          <br><br>
+  
+        
+          <input type="password" placeholder="Senha..." name="senha">
+          <br><br>
+  
+  
+        <button type="submit" class="btn btn-success m-3">Enviar</button>
+        <a href="{% url 'produtos_listar' %}" class="btn btn-secondary">Voltar</a>  
+  
+    </form>
+
+      </div>
+  
+</div>
+
+</div>
+   
+   
+
+  
+
+
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>

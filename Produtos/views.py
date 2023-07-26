@@ -1,6 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404,redirect
 from .models import Produtos
 from .forms import ProdutosForm
+from  django.contrib.auth import authenticate
+from  django.contrib.auth import login as loginho
+from django.contrib.auth.models import User
+
 
 
 def index(request):
@@ -71,9 +76,34 @@ def total(request):
     }
     return render(request, "area_administrativa/areaAdmin.html",context)
 
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'area_administrativa/login.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+        
+        user = authenticate(username = username, password = senha)
+        
+        if user:
+            loginho(request, user)
+            return render(request,'area_administrativa/areaAdmin.html')
+        else:
+            
+            return False
+        
+
 def produtos_listar_admin(request):
     produtos = Produtos.objects.all()
     context ={
         'produtos':produtos
     }
     return render(request, "area_administrativa/areaAdmin.html",context)
+
+        
+def plataforma(request):
+    if request.user.is_authenticated:
+        
+        return render(request,'area_administrativa/areaAdmin.html')
+    
+    return HttpResponse('voce precisa estar logado!')

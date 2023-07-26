@@ -55,6 +55,8 @@ footer {
     font-size: 18px;
     font-family: 'Source Sans Pro', 'sans-sarif';
     color: white;
+    position: fixed;
+    bottom: 0;
 }
 
 ul {

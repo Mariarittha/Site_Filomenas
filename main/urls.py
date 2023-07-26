@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from Produtos.views import produtos_cadastrar, produtos_listar, index, detalhar_produto,total, produto_editar, produto_remover,produtos_listar_admin
+from Produtos.views import produtos_cadastrar, produtos_listar, index, detalhar_produto,total, produto_editar, produto_remover,produtos_listar_admin, login, plataforma
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -13,6 +13,9 @@ urlpatterns = [
     path('adminis/', produtos_listar_admin, name="produtor_listar_admin"),
     path('editar/<int:id>/', produto_editar, name='produto_editar'),
     path('remover/<int:id>/', produto_remover, name="produto_remover"),
+    
+    path ('login/',login,name='login'),
+    path ('plataforma/',plataforma,name='plataforma'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
