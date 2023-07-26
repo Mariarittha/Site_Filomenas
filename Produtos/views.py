@@ -91,25 +91,8 @@ def login(request):
              loginho(request, user)
              return redirect('produtor_listar_admin')
          else:
-            
-             return False
-
-
-
-# def login(request): 
-#     if request.method == 'GET':
-#         username = request.POST.get('username')
-#         senha = request.POST.get('senha')
-        
-        
-#         user = authenticate(username=username, password=senha)
-        
-#         if user: 
-#             loginho(request, user) 
-#             return redirect('produtor_listar_admin') 
-#         else: 
-#             messages.error(request,'username ou senha inválida') 
-#         return redirect('login') 
+              messages.error(request,'username ou senha inválida') 
+         return redirect('login')
         
 
 def produtos_listar_admin(request):
@@ -126,3 +109,18 @@ def plataforma(request):
         return render(request,'area_administrativa/areaAdmin.html')
     
     return HttpResponse('voce precisa estar logado!')
+
+# def login(request): 
+#     if request.method == 'GET':
+#         username = request.POST.get('username')
+#         senha = request.POST.get('senha')
+        
+        
+#         user = authenticate(username=username, password=senha)
+        
+#         if user: 
+#             loginho(request, user) 
+#             return redirect('produtor_listar_admin') 
+#         else: 
+#             messages.error(request,'username ou senha inválida') 
+#         return redirect('login') 
