@@ -5,6 +5,8 @@ from .forms import ProdutosForm
 from  django.contrib.auth import authenticate
 from  django.contrib.auth import login as loginho
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 
 
 
@@ -77,20 +79,37 @@ def total(request):
     return render(request, "area_administrativa/areaAdmin.html",context)
 
 def login(request):
-    if request.method == 'GET':
-        return render(request, 'area_administrativa/login.html')
-    else:
-        username = request.POST.get('username')
-        senha = request.POST.get('senha')
+     if request.method == 'GET':
+         return render(request, 'area_administrativa/login.html')
+     else:
+         username = request.POST.get('username')
+         senha = request.POST.get('senha')
         
-        user = authenticate(username = username, password = senha)
+         user = authenticate(username = username, password = senha)
         
-        if user:
-            loginho(request, user)
-            return render(request,'area_administrativa/areaAdmin.html')
-        else:
+         if user:
+             loginho(request, user)
+             return redirect('produtor_listar_admin')
+         else:
             
-            return False
+             return False
+
+
+
+# def login(request): 
+#     if request.method == 'GET':
+#         username = request.POST.get('username')
+#         senha = request.POST.get('senha')
+        
+        
+#         user = authenticate(username=username, password=senha)
+        
+#         if user: 
+#             loginho(request, user) 
+#             return redirect('produtor_listar_admin') 
+#         else: 
+#             messages.error(request,'username ou senha inválida') 
+#         return redirect('login') 
         
 
 def produtos_listar_admin(request):
